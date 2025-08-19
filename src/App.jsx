@@ -1,25 +1,13 @@
 import { useEffect , useState } from "react";
 
 function App(){
-  const [count, setCount] = useState (1);
-  function increaseCount(){
-    setCount (currentValue => currentValue + 1);
-
-  }
-
-
-useEffect (function (){
-  console.log("above setInterval")
-  setInterval (increaseCount, 1000);
-},[])
-
-useEffect (function (){
-  console.log ("the count has been updated to " + count );
-},[count]);
-
-
+  const [currentTab , setCurrentTab] = useState ("notifications");
+ 
 return <div>
-  {count}
+<button onClick={()=> setCurrentTab("feed")} style={{color: currentTab == "feed" ? "red" : "black"}}>Feed</button>
+<button onClick={() => setCurrentTab("notifications")} style={{color: currentTab == "notifications" ? "red" : "black"}}>Notifications</button> 
+<button onClick={() => setCurrentTab ("messages")} style={{color: currentTab == "messages" ? "red" : "black"}}>messages</button>
+<button onClick={()=> setCurrentTab("jobs")} style={{color: currentTab == "jobs" ? "red" : "black"}}>Jobs</button>
 </div>
 }
 
