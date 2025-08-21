@@ -9,10 +9,10 @@ const App = () => {
   );
 
 };
-
+const componetStyles= {backgroundColor: 'blue', color: 'white', padding : 10, margin :20, borderRadius : 20 }
 function MyComponent() {
   return (
-    <div style={{ backgroundColor: 'blue', color: 'white', padding : 10, margin :20, borderRadius : 20 }}>
+    <div style= {componetStyles}>
       Hello, World!
     </div>
   );
