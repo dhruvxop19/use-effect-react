@@ -1,36 +1,24 @@
-import { useEffect, useState } from "react";
+function App (){
 
-function App() {
-  const [currentTab, setCurrentTab] = useState(1);
-  const [tabData, setTabData] = useState({});
-  const [loading, setLoading] = useState(true);
+  return <div style={{display:"flex"}}>
+    <Card innerContent={<div style={{color:"green"}}>What do you want to post <br /> <br />
+    <input type={"text"}/>
+    </div>}/>
 
-  useEffect(function() {
-    setLoading(true);
-    fetch("https://jsonplaceholder.typicode.com/todos/" + currentTab)
-      .then(async res => {
-        const json = await res.json();
-        setTabData(json);
-        setLoading(false);
-      });
+<Card innerContent={"hi there"}/>
 
-  }, [currentTab])
-  
-  return <div>
-    <button onClick={function() {
-      setCurrentTab(1)
-    }} style={{color: currentTab == 1 ? "red" : "black"}}>Todo #1</button>
-    <button onClick={function() {
-      setCurrentTab(2)
-    }} style={{color: currentTab == 2 ? "red" : "black"}}>Todo #2</button>
-    <button onClick={function() {
-      setCurrentTab(3)
-    }} style={{color: currentTab == 3 ? "red" : "black"}}>Todo #3</button>
-    <button onClick={function() {
-      setCurrentTab(4)
-    }} style={{color: currentTab == 4 ? "red" : "black"}}>Todo #4</button>
-<br /> 
-    {loading ? "Loading..." : tabData.title}
+  </div>
+}
+
+
+function Card ({innerContent}){
+
+  return <div style={{ background : "black", 
+    borderRadius : 10 , color: "white" , padding : 10, 
+    margin:10
+  }}>
+    {innerContent}
+
   </div>
 }
 
