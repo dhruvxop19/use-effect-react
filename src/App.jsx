@@ -4,21 +4,18 @@ const App = () => {
 
   return (
 <div>
-{[
-  <Todo key = {1} title = {"go to gym"} done = {false}/>,
-  <Todo key = {2} title = {"Eat food"} done = {false}/>
-]}
-
+<MyComponent />
 </div>
   );
 
 };
 
-
-function Todo ({title,done}){
-  return <div>
-    {title} - { done ?  "done!" : "notdone!"}
-  </div>
+function MyComponent() {
+  return (
+    <div style={{ backgroundColor: 'blue', color: 'white', padding : 10, margin :20, borderRadius : 20 }}>
+      Hello, World!
+    </div>
+  );
 }
 
 export default App;
